@@ -1,0 +1,41 @@
+# AI 教程项目
+
+本项目是一个面向 AI/编程学习的教程集合，使用 Python 进行示例演示。
+
+## 当前内容
+
+- `tutorials/tools/`：Python 开发工具（`venv` 虚拟环境、`uv` 包管理器、`uvicorn` ASGI 服务器）。
+- `tutorials/protocols/`：HTTP/HTTPS 协议基础及 Python HTTP 客户端示例。
+- `tutorials/fastapi/`：FastAPI 框架学习教程，从基础入门到完整项目实战。
+
+## 环境要求
+
+- Python >= 3.12
+- 使用 [uv](https://docs.astral.sh/uv/) 管理依赖
+
+## 安装依赖
+
+```bash
+uv sync
+```
+
+## 进入虚拟环境
+
+```bash
+source .venv/bin/activate
+```
+
+## FastAPI 教程快速开始
+
+进入任意章节目录，例如：
+
+```bash
+cd tutorials/fastapi/01_hello_fastapi
+uv run uvicorn main:app --reload
+```
+
+然后访问：
+
+- 应用接口：http://127.0.0.1:8000
+- 交互式 API 文档（Swagger UI）：http://127.0.0.1:8000/docs
+- 替代文档（ReDoc）：http://127.0.0.1:8000/redoc

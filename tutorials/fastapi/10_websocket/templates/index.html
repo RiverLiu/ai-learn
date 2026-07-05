@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>FastAPI WebSocket 聊天室</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; }
+        #messages { border: 1px solid #ddd; height: 300px; overflow-y: auto; padding: 10px; margin-bottom: 10px; }
+        #messageText { width: 75%; padding: 8px; }
+        button { padding: 8px 16px; }
+    </style>
+</head>
+<body>
+    <h1>WebSocket 聊天室</h1>
+    <div id="messages"></div>
+    <input type="text" id="messageText" placeholder="输入消息..." autocomplete="off"/>
+    <button onclick="sendMessage()">发送</button>
+
+    <script>
+        const clientId = "user_" + Math.floor(Math.random() * 1000);
+        const ws = new WebSocket(`ws://${window.location.host}/ws/${clientId}`);
+
+        ws.onmessage = function(event) {
+            const messages = document.getElementById("messages");
+            const message = document.createElement("div");
+            message.textContent = event.data;
+            messages.appendChild(message);
+            messages.scrollTop = messages.scrollHeight;
+        };
+
+        function sendMessage() {
+            const input = document.getElementById("messageText");
+            if (input.value) {
+                ws.send(input.value);
+                input.value = "";
+            }
+        }
+
+        document.getElementById("messageText").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") sendMessage();
+        });
+    </script>
+</body>
+</html>

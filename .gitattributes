@@ -1,0 +1,41 @@
+# Auto detect text files and normalize line endings to LF on checkout
+* text=auto eol=lf
+
+# Python files
+*.py text eol=lf diff=python
+*.pyw text eol=lf diff=python
+
+# Python templates and configs
+*.toml text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+
+# Documentation
+*.md text eol=lf diff=markdown
+*.txt text eol=lf
+*.rst text eol=lf
+
+# Web files
+*.html text eol=lf diff=html
+*.css text eol=lf diff=css
+*.js text eol=lf diff=javascript
+*.json text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Binary files (do not modify line endings)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.bz2 binary
+*.7z binary
+*.db binary

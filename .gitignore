@@ -1,0 +1,67 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+*.so
+*.dylib
+*.dll
+build/
+dist/
+wheels/
+*.egg-info
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+
+# Virtual environments
+.venv
+venv/
+env/
+ENV/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.crt
+secrets/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local databases and generated files
+*.db
+*.sqlite
+*.sqlite3
+todo.db
+heroes.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
