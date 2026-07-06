@@ -39,3 +39,7 @@ uv run uvicorn main:app --reload
 - 应用接口：http://127.0.0.1:8000
 - 交互式 API 文档（Swagger UI）：http://127.0.0.1:8000/docs
 - 替代文档（ReDoc）：http://127.0.0.1:8000/redoc
+
+## License
+
+本项目采用 [MIT License](LICENSE) 开源许可。
