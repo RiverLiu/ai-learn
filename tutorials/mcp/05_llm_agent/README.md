@@ -14,7 +14,19 @@
 
 ## 运行
 
-需要设置 `OPENAI_API_KEY`（使用兼容 OpenAI 协议的服务时，再加 `OPENAI_BASE_URL` 和 `MODEL_NAME`）：
+需要 `OPENAI_API_KEY`；使用兼容 OpenAI 协议的服务时，还需 `OPENAI_BASE_URL` 和 `MODEL_NAME`。
+两种配置方式任选其一：
+
+方式一：`.env` 文件——复制本章的 `.env.example` 为 `.env` 并填入真实配置即可
+（脚本会优先加载本章目录的 `.env`，其次向上查找到项目根目录的 `.env`）：
+
+```bash
+cp tutorials/mcp/05_llm_agent/.env.example tutorials/mcp/05_llm_agent/.env
+# 编辑 .env 填入密钥后运行
+uv run tutorials/mcp/05_llm_agent/agent.py "北京天气怎么样？顺便算算 10 除以 4"
+```
+
+方式二：环境变量（优先级高于 .env，不会被覆盖）：
 
 ```bash
 export OPENAI_API_KEY="sk-..."

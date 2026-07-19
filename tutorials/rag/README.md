@@ -32,7 +32,7 @@ LLM 的知识截止于训练数据，且无法访问你的私有文档。两种�
 ## 章节目录
 
 1. [01_embeddings](./01_embeddings/)：文本向量与语义相似度——RAG 的地基
-2. [02_chunking](./02_chunking/)：文档切块策略（固定窗口 vs 结构感知）
+2. [02_chunking](./02_chunking/)：文档切块策略（固定窗口 vs 结构，感知）
 3. [03_vector_store](./03_vector_store/)：手写一个向量数据库，构建知识库索引
 4. [04_rag_pipeline](./04_rag_pipeline/)：完整 RAG——检索 + 生成，带出处引用
 

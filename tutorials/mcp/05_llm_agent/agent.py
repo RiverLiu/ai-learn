@@ -13,6 +13,7 @@ import os
 import sys
 from pathlib import Path
 
+from dotenv import load_dotenv
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 from openai import OpenAI
@@ -20,7 +21,12 @@ from openai import OpenAI
 # 连接第 2 章的工具 Server（天气、除法、文件搜索）
 SERVER_SCRIPT = Path(__file__).parent.parent / "02_tools" / "server.py"
 
-# 读取 OPENAI_API_KEY；使用第三方兼容服务时同时设置 OPENAI_BASE_URL
+# 加载 .env 配置：优先本章目录下的 .env（参考 .env.example），
+# 其次从当前目录向上查找（如项目根目录）；已存在的环境变量不会被覆盖
+load_dotenv(Path(__file__).parent / ".env")
+load_dotenv()
+
+# OpenAI() 自动读取 OPENAI_API_KEY 与 OPENAI_BASE_URL（可来自环境变量或上面的 .env）
 llm = OpenAI()
 MODEL = os.getenv("MODEL_NAME", "gpt-4o-mini")
 
