@@ -53,6 +53,8 @@ logs/
 *.sqlite3
 todo.db
 heroes.db
+tutorials/rag/03_vector_store/rag_index.npz
+tutorials/rag/03_vector_store/rag_index.json
 
 # Temporary files
 tmp/

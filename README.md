@@ -7,6 +7,8 @@
 - `tutorials/tools/`：Python 开发工具（`venv` 虚拟环境、`uv` 包管理器、`uvicorn` ASGI 服务器）。
 - `tutorials/protocols/`：HTTP/HTTPS 协议基础及 Python HTTP 客户端示例。
 - `tutorials/fastapi/`：FastAPI 框架学习教程，从基础入门到完整项目实战。
+- `tutorials/mcp/`：MCP（Model Context Protocol）教程，从编写 Server 到构建迷你 Agent。
+- `tutorials/rag/`：RAG（检索增强生成）知识库教程，从 Embedding 到完整检索问答流水线。
 
 ## 环境要求
 
