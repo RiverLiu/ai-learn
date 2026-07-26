@@ -11,6 +11,7 @@
 - `tutorials/rag/`：RAG（检索增强生成）知识库教程，从 Embedding 到完整检索问答流水线。
 - `tutorials/langchain/`：LangChain 1.x 教程，从模型调用、LCEL 到 RAG、工具调用与 LangSmith。
 - `tutorials/langgraph/`：LangGraph 教程，从状态图、条件循环到 ReAct Agent、人机协作与会话持久化。
+- `tutorials/memory/`：Agent 记忆教程，从短期记忆策略、长期记忆闭环到语义召回与 LangGraph Store。
 
 ## 环境要求
 
