@@ -1,6 +1,6 @@
 # 05 结合 LLM 构建迷你 Agent
 
-这是本教程的收官章节：把 MCP 工具接入 LLM 的 function calling 流程，
+把 MCP 工具接入 LLM 的 function calling 流程，
 实现一个最小的 Agent——用户用自然语言提问，LLM 自己决定调用哪些 MCP 工具并汇总答案。
 
 ## 本章要点

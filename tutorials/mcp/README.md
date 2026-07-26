@@ -46,6 +46,7 @@ MCP 把这件事变成两套标准接口：工具方实现 MCP Server，应用�
 3. [03_resources_prompts](./03_resources_prompts/)：Resources 与 Prompts
 4. [04_mcp_client](./04_mcp_client/)：用 Python 编写 MCP Client
 5. [05_llm_agent](./05_llm_agent/)：结合 OpenAI function calling 构建迷你 Agent
+6. [06_protocol](./06_protocol/)：协议细节——手写 JSON-RPC 与 Server 对话（生命周期、错误模型、传输）
 
 ## 环境准备
 
