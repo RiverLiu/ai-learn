@@ -10,10 +10,10 @@ langchain 教程第 5 章手写的"模型提议 -> 执行工具 -> 回传 -> 再
 import os
 
 from dotenv import load_dotenv
+from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
 from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
 
 load_dotenv()
 
@@ -36,7 +36,7 @@ def divide(a: float, b: float) -> float:
 def main():
     model = ChatOpenAI(model=os.getenv("MODEL_NAME", "gpt-4o-mini"))
     # 一行构建 Agent：模型 + 工具，循环、消息管理全部由图托管
-    agent = create_react_agent(model, tools=[get_weather, divide])
+    agent = create_agent(model, tools=[get_weather, divide])
 
     question = "北京和上海的天气怎么样？再算一下 10 除以 4。"
     print(f"问题：{question}\n")
