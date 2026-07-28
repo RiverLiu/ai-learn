@@ -24,4 +24,5 @@ dependencies = [
     "langchain-openai>=1.4.1",
     "langgraph>=1.2.9",
     "langchain-text-splitters>=1.1.2",
+    "deepagents>=0.6.12",
 ]

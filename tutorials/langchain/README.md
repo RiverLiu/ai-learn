@@ -9,9 +9,10 @@ LangChain 是最流行的 LLM 应用开发框架，把"调模型"封装成可组
 | --- | --- | --- |
 | **LangChain** | 组件库 + LCEL 编排语言：模型、提示词、解析器、检索器 | 积木与说明书 |
 | **LangGraph** | Agent 编排框架：状态图、循环、分支、持久化、人机协作 | 用积木搭机器人 |
+| **Deep Agents** | 基于 LangGraph 的预建深度代理：规划、文件系统、子代理 | 现成的机器人 |
 | **LangSmith** | 观测与评估平台：调用链追踪（tracing）、数据集、效果评估 | 行车记录仪 + 考场 |
 
-本教程讲 LangChain；[LangGraph 教程](../langgraph/)单独成章；LangSmith 在[第 6 章](./06_langsmith/)介绍。
+本教程讲 LangChain；[LangGraph 教程](../langgraph/)与 [Deep Agents 教程](../deepagents/)单独成章；LangSmith 在[第 6 章](./06_langsmith/)介绍。
 
 ## 章节目录
 

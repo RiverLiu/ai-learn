@@ -12,6 +12,7 @@
 - `tutorials/langchain/`：LangChain 1.x 教程，从模型调用、LCEL 到 RAG、工具调用与 LangSmith。
 - `tutorials/langgraph/`：LangGraph 教程，从状态图、条件循环到 ReAct Agent、人机协作与会话持久化。
 - `tutorials/memory/`：Agent 记忆教程，从短期记忆策略、长期记忆闭环到语义召回与 LangGraph Store。
+- `tutorials/deepagents/`：Deep Agents 教程，基于 LangGraph 的深度代理——规划、上下文卸载、子代理、存储后端与人工审批。
 
 ## 环境要求
 
