@@ -11,7 +11,12 @@ import sys
 from pathlib import Path
 
 import numpy as np
+from dotenv import load_dotenv
 from openai import OpenAI
+
+# 加载 .env 配置：优先本章目录下的 .env，其次向上查找（如项目根目录）
+load_dotenv(Path(__file__).parent / ".env")
+load_dotenv()
 
 KB_DIR = Path(__file__).parent.parent / "knowledge_base"
 
