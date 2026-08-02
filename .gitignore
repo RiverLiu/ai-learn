@@ -57,6 +57,7 @@ tutorials/rag/03_vector_store/rag_index.npz
 tutorials/rag/03_vector_store/rag_index.json
 tutorials/memory/02_long_term/memories.json
 tutorials/deepagents/04_backends/workspace/
+tutorials/basic/01_json/output.json
 
 # Temporary files
 tmp/
