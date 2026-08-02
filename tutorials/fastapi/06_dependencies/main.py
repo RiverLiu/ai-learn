@@ -19,7 +19,7 @@ def read_items(commons: Annotated[CommonQueryParams, Depends(CommonQueryParams)]
 
 @app.get("/users/")
 def read_users(
-    db: Annotated[Database, Depends(db_session)],
+    db: db_session,
     q: str | None = None,
     skip: int = 0,
     limit: int = 10,

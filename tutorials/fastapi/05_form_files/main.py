@@ -1,9 +1,20 @@
 from typing import Annotated
 
-from fastapi import FastAPI, File, Form, UploadFile
+from fastapi import FastAPI, File, Form, UploadFile as FastAPIUploadFile
+from pydantic import WithJsonSchema
 
 app = FastAPI()
 
+# 修复 Swagger UI 将 UploadFile 显示为文本框的问题
+UploadFile = Annotated[
+    FastAPIUploadFile,
+    WithJsonSchema(
+        {
+            "type": "string",
+            "format": "binary",
+        }
+    ),
+]
 
 @app.post("/login/")
 def login(
@@ -12,7 +23,7 @@ def login(
 ):
     """使用表单数据登录。"""
     return {"username": username, "message": "登录成功"}
-
+    
 
 @app.post("/uploadfile/")
 async def upload_file(file: Annotated[UploadFile, File()]):
