@@ -1,0 +1,59 @@
+# 本地与国产开源模型部署
+
+本仓库的教程统一通过 **OpenAI 兼容接口** 调用模型（`OPENAI_BASE_URL` + `OPENAI_API_KEY` + `MODEL_NAME`）。
+这意味着：只要有一个兼容该协议的本地服务，**整套教程不花一分钱 API 费用、不联网也能跑**。
+本模块就来做这件事——用 [Ollama](https://ollama.com/) 在自己的电脑上跑开源模型。
+
+## 为什么要在本地跑模型
+
+- **免费**：不限调用次数，做 RAG 这种反复调 Embedding 的实验时尤其划算。
+- **隐私**：文档和对话不出本机，适合处理内部资料。
+- **离线**：断网、飞机上都能用，也不受 API 限流影响。
+- **国产开源模型已经很好用**：通义千问 Qwen3 等国产开源模型在 Ollama 官方模型库直接可拉，
+  中文场景下完全够支撑本仓库的全部练习。
+
+代价是需要自己出硬件：模型权重下载占用磁盘，推理占用内存/显存。
+第 1 章给出显存与模型大小的选型对照表。
+
+## 章节目录
+
+1. [01_ollama](./01_ollama/)：Ollama 安装与使用，本地跑 Qwen3，OpenAI 兼容端点接入整套教程
+2. [02_local_embedding](./02_local_embedding/)：本地向量模型（bge-m3），让 RAG 教程的索引和检索也离线化
+
+## 环境准备
+
+Python 侧没有新增依赖（`openai`、`httpx`、`numpy` 已在根目录 `pyproject.toml` 中）：
+
+```bash
+uv sync
+```
+
+两章脚本都采用 **"检测-引导"模式**：启动时先探测本机 Ollama 服务（`http://localhost:11434`）——
+
+- 已安装并运行：直接做真实演示；
+- 未安装：打印分步安装与配置指引后正常退出（退出码 0）。
+
+所以没装 Ollama 也可以先运行脚本，照着输出一步步来。
+
+## 配好之后的全局效果
+
+按第 1 章指引在项目根目录 `.env` 写入：
+
+```bash
+OPENAI_BASE_URL=http://localhost:11434/v1
+OPENAI_API_KEY=ollama
+MODEL_NAME=qwen3:8b
+EMBEDDING_MODEL=bge-m3        # 第 2 章拉取后加上
+```
+
+`rag` / `langchain` / `langgraph` / `memory` / `deepagents` 等教程**不需要改任何代码**，
+全部改由你本机的开源模型驱动（各章通过 `load_dotenv()` 自动读取根目录 `.env`，
+配置模板见根目录 [.env.example](../../.env.example)）。
+
+## 参考
+
+- Ollama 官网与模型库：https://ollama.com/ 、https://ollama.com/library
+- Ollama 的 OpenAI 兼容 API 文档：https://docs.ollama.com/openai
+- Qwen3 模型卡：https://ollama.com/library/qwen3
+- bge-m3 模型卡：https://ollama.com/library/bge-m3
+- 模型下载大小、显存需求会随版本变化，**一切以官网模型库的实时数据为准**。

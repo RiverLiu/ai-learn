@@ -1,0 +1,10 @@
+{"id": 1, "question": "云雀笔记支持哪些平台？", "expected_answer": "支持 Windows、macOS、iOS 和 Android 四端同步。", "source": "product_intro.md", "keywords": ["Windows", "macOS", "iOS", "Android"]}
+{"id": 2, "question": "专业版多少钱？学生有优惠吗？", "expected_answer": "专业版每月 18 元，按年付费优惠价每年 168 元；学生凭 edu 邮箱可申请半价，即每月 9 元。", "source": "pricing.md", "keywords": ["18", "168", "半价", "9"]}
+{"id": 3, "question": "免费版有哪些限制？", "expected_answer": "免费版最多 1000 条笔记，单条笔记最大 2MB，保留 30 天历史版本，2 台设备同时在线，不包含 AI 摘要功能。", "source": "pricing.md", "keywords": ["1000", "2MB", "30 天", "AI 摘要"]}
+{"id": 4, "question": "离线编辑发生冲突了怎么办？", "expected_answer": "网络恢复后自动合并；若同一笔记在多台设备离线修改，合并时保留两个版本并标记冲突，由用户手动选择保留哪一版。", "source": "product_intro.md", "keywords": ["两个版本", "冲突", "手动"]}
+{"id": 5, "question": "我的笔记会被拿去训练 AI 吗？", "expected_answer": "不会。笔记内容不会用于任何模型训练；AI 摘要按次调用处理，处理完成后服务端不保留原文。", "source": "faq.md", "keywords": ["不会", "训练", "不保留"]}
+{"id": 6, "question": "AI 摘要次数用完了怎么办？", "expected_answer": "专业版每月 500 次额度用完后，可按每 100 次 5 元购买加油包（当月有效不结转），或关闭“自动生成每周回顾”节省额度。", "source": "faq.md", "keywords": ["100 次", "5 元", "加油包"]}
+{"id": 7, "question": "团队版怎么收费？", "expected_answer": "团队版按成员数收费，每位成员每月 45 元，最少 5 人起购。", "source": "pricing.md", "keywords": ["45", "5 人"]}
+{"id": 8, "question": "如何从 Notion 导入笔记？", "expected_answer": "在“设置 → 导入”中选择 Notion，上传 .zip 导出文件；单次导入最多 2GB，导入保留原始文件夹结构。", "source": "faq.md", "keywords": ["导入", "zip", "2GB"]}
+{"id": 9, "question": "退款政策是怎样的？", "expected_answer": "所有付费方案支持 7 天无理由退款；超过 7 天后，按年付费可按剩余月份折算退款，按月付费不支持中途退款；退款在申请后 3 个工作日内原路退回。", "source": "pricing.md", "keywords": ["7 天", "折算", "3 个工作日"]}
+{"id": 10, "question": "笔记数据的存储安全吗？", "expected_answer": "笔记数据在传输和静态存储时均使用 AES-256 加密；可在设置中一键导出全部笔记，导出格式为 Markdown 压缩包。", "source": "product_intro.md", "keywords": ["AES-256", "加密", "导出"]}

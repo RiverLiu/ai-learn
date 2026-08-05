@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>SSE 流式演示</title>
+</head>
+<body>
+  <h3>SSE 流式输出演示</h3>
+  <input id="msg" value="用三句话介绍什么是 SSE" size="40">
+  <button onclick="ask()">发送</button>
+  <pre id="out" style="white-space: pre-wrap; border: 1px solid #ccc; padding: 8px;"></pre>
+
+  <script>
+    function ask() {
+      const out = document.getElementById('out');
+      out.textContent = '';
+      // EventSource：浏览器原生的 SSE 客户端，自动处理重连
+      const source = new EventSource('/chat?message=' + encodeURIComponent(document.getElementById('msg').value));
+      source.onmessage = (event) => {
+        if (event.data === '[DONE]') { source.close(); return; }
+        out.textContent += event.data.replace(/\\n/g, '\n');  // 逐段追加，打字机效果
+      };
+      source.onerror = () => { out.textContent += '\n[连接中断]'; source.close(); };
+    }
+  </script>
+</body>
+</html>

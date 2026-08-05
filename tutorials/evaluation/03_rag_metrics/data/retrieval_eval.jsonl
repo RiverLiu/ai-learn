@@ -1,0 +1,10 @@
+{"question": "一个月花九块钱的是什么用户", "source": "pricing.md", "gold": "每月 9 元"}
+{"question": "一口气包年比按月付便宜多少", "source": "pricing.md", "gold": "每年 168 元"}
+{"question": "不花钱的账户能同时登几台设备", "source": "pricing.md", "gold": "2 台设备同时在线"}
+{"question": "两台手机都没网时改了同一条笔记会怎样", "source": "product_intro.md", "gold": "保留两个版本并标记冲突"}
+{"question": "我写的东西会被拿去喂模型吗", "source": "faq.md", "gold": "不会用于任何模型训练"}
+{"question": "Evernote 攒了好多年的笔记能搬过来吗", "source": "faq.md", "gold": "印象笔记为 .enex"}
+{"question": "总结额度不够用了，能单独花钱加吗", "source": "faq.md", "gold": "每 100 次 5 元"}
+{"question": "我们公司只有四个人，能买团队版吗", "source": "pricing.md", "gold": "最少 5 人起购"}
+{"question": "用了十天后悔了还能全额退钱吗", "source": "pricing.md", "gold": "7 天无理由退款"}
+{"question": "备份出来的笔记是什么格式的文件", "source": "product_intro.md", "gold": "Markdown 压缩包"}
