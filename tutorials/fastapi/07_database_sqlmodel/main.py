@@ -1,3 +1,5 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, HTTPException
 
 from crud import (
@@ -7,16 +9,17 @@ from crud import (
     get_heroes,
     update_hero,
 )
-from database import SessionDep, create_db_and_tables, engine
+from database import SessionDep, create_db_and_tables
 from models import HeroCreate, HeroPublic
 
-app = FastAPI()
 
-
-@app.on_event("startup")
-def on_startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     """应用启动时创建数据库表。"""
     create_db_and_tables()
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 
 @app.post("/heroes/", response_model=HeroPublic, status_code=201)

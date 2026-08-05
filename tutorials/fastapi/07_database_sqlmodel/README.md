@@ -2,6 +2,9 @@
 
 使用 SQLModel 完成数据库 CRUD。
 
+> 想系统了解 SQLModel 的设计理念、与 SQLAlchemy/Pydantic/FastAPI 的关系，请先阅读 [SQLModel 简介](./sqlmodel_intro.md)。
+> 想深入理解 SQLModel 的底层引擎，请阅读 [SQLAlchemy 简介](./sqlalchemy_intro.md)。
+
 ## 运行
 
 ```bash
