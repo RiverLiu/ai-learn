@@ -20,20 +20,21 @@
 | 9 | [tutorials/langgraph](tutorials/langgraph/) | LangGraph：状态图、循环、ReAct Agent、人机协作、持久化 | ⭐⭐⭐ |
 | 10 | [tutorials/memory](tutorials/memory/) | Agent 记忆：短期策略、长期闭环、语义召回、Store | ⭐⭐⭐ |
 | 11 | [tutorials/mcp](tutorials/mcp/) | MCP：Server/Client、三种原语、协议细节 | ⭐⭐⭐ |
-| 12 | [tutorials/deepagents](tutorials/deepagents/) | Deep Agents：规划、上下文卸载、子代理、存储后端 | ⭐⭐⭐ |
-| 13 | [tutorials/evaluation](tutorials/evaluation/) | 评估：评估集、LLM-as-judge、RAG 检索指标 | ⭐⭐⭐ |
-| 14 | [tutorials/local_models](tutorials/local_models/) | 本地模型：Ollama、本地 Embedding（离线/合规场景） | ⭐⭐ |
-| 15 | [tutorials/security](tutorials/security/) | LLM 应用安全：提示词注入、间接注入、纵深防御 | ⭐⭐⭐ |
-| 16 | [tutorials/multimodal](tutorials/multimodal/) | 多模态：图像理解、语音转写（ASR→LLM 管道） | ⭐⭐ |
-| 17 | [tutorials/multi_agent](tutorials/multi_agent/) | 多 Agent 设计模式：流水线、主管、交接 | ⭐⭐⭐ |
-| 18 | [tutorials/capstone](tutorials/capstone/) | **毕业项目**：云雀笔记智能客服（RAG+Agent+SSE 流式+评测） | ⭐⭐⭐ |
+| 12 | [tutorials/skills](tutorials/skills/) | Skills：把可复用经验封装成 Agent 能自动加载的能力包 | ⭐⭐⭐ |
+| 13 | [tutorials/deepagents](tutorials/deepagents/) | Deep Agents：规划、上下文卸载、子代理、存储后端 | ⭐⭐⭐ |
+| 14 | [tutorials/evaluation](tutorials/evaluation/) | 评估：评估集、LLM-as-judge、RAG 检索指标 | ⭐⭐⭐ |
+| 15 | [tutorials/local_models](tutorials/local_models/) | 本地模型：Ollama、本地 Embedding（离线/合规场景） | ⭐⭐ |
+| 16 | [tutorials/security](tutorials/security/) | LLM 应用安全：提示词注入、间接注入、纵深防御 | ⭐⭐⭐ |
+| 17 | [tutorials/multimodal](tutorials/multimodal/) | 多模态：图像理解、语音转写（ASR→LLM 管道） | ⭐⭐ |
+| 18 | [tutorials/multi_agent](tutorials/multi_agent/) | 多 Agent 设计模式：流水线、主管、交接 | ⭐⭐⭐ |
+| 19 | [tutorials/capstone](tutorials/capstone/) | **毕业项目**：云雀笔记智能客服（RAG+Agent+SSE 流式+评测） | ⭐⭐⭐ |
 
 ## 分角色学习路径
 
 - **零基础大学生（建议 14-16 周）**：按路线图顺序学习，每周 1 个模块。
   tools/basic 跟不上时先补 Python 语法。
 - **在职工程师（建议 4 周速成）**：已会 Python 和 Web 开发，可直接从第 4 站开始：
-  `llm_api → prompt → rag → langchain → langgraph → memory → mcp → deepagents`，
+  `llm_api → prompt → rag → langchain → langgraph → memory → mcp → skills → deepagents`，
   tools/protocols/fastapi 按需查阅，evaluation 与 local_models 收尾。
 
 ## 章节结构约定
