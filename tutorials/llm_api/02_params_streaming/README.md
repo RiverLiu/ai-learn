@@ -34,6 +34,8 @@ uv run tutorials/llm_api/02_params_streaming/main.py
 - **delta 与 message**：非流式拿完整 `message.content`；流式每块只给增量
   `delta.content`，且首块/末块可能为空，必须判空。
 
+> OpenAI tokenizer tool: https://platform.openai.com/tokenizer
+
 ## 常见错误
 
 | 现象 | 原因 | 处理 |
