@@ -1,9 +1,14 @@
 # AI 开发教程
 
-面向**大学生与在职工程师**的 AI 应用开发系统教程，使用 Python，全部示例可运行。
-主线目标：从零基础到能独立构建生产级 LLM 应用（RAG、Agent、MCP、评估与部署）。
+面向**大学生与在职工程师**的 AI 应用开发系统教程，使用 Python，基础示例可运行，高级专题面向生产工程化。
+主线目标：从零基础到能独立构建生产级 LLM 应用（RAG、Agent、MCP、评估、观测与部署）。
 
-## 学习路线图
+本项目分为两层：
+
+- [tutorials](tutorials/)：基础教程，讲清 LLM 应用开发的核心概念和最小可运行实现。
+- [advanced](advanced/)：高级教程，讲生产级 AI 应用的架构、数据管道、测试、可观测性、成本优化、前端交互、后台任务和部署。
+
+## 基础学习路线图
 
 难度：⭐ 入门　⭐⭐ 基础　⭐⭐⭐ 进阶
 
@@ -29,6 +34,23 @@
 | 18 | [tutorials/multi_agent](tutorials/multi_agent/) | 多 Agent 设计模式：流水线、主管、交接 | ⭐⭐⭐ |
 | 19 | [tutorials/capstone](tutorials/capstone/) | **毕业项目**：云雀笔记智能客服（RAG+Agent+SSE 流式+评测） | ⭐⭐⭐ |
 
+## 高级学习路线图
+
+高级教程默认读者已经完成基础路线中的 `llm_api → prompt → rag → fastapi → langchain/langgraph → evaluation → capstone`。
+
+| 顺序 | 模块 | 内容 | 目标 |
+| --- | --- | --- | --- |
+| 1 | [advanced/01_product_architecture](advanced/01_product_architecture/) | 产品架构、模块边界、数据流 | 从 demo 设计走向工程架构 |
+| 2 | [advanced/02_knowledge_engineering](advanced/02_knowledge_engineering/) | 文档摄取、元数据、增量索引 | 建立可治理知识库 |
+| 3 | [advanced/03_production_rag](advanced/03_production_rag/) | hybrid search、rerank、query rewrite、失败分析 | 提升 RAG 质量 |
+| 4 | [advanced/04_agent_engineering](advanced/04_agent_engineering/) | 工具权限、Agent 轨迹、Skills 生产化、人工审批 | 让 Agent 可控 |
+| 5 | [advanced/05_quality_engineering](advanced/05_quality_engineering/) | LLM 测试、评估 CI、Prompt 回归 | 建立质量防线 |
+| 6 | [advanced/06_observability_cost](advanced/06_observability_cost/) | trace、反馈闭环、token 成本、延迟优化 | 能定位问题并控制成本 |
+| 7 | [advanced/07_user_experience](advanced/07_user_experience/) | Chat UI、SSE、文件上传、引用展示 | 做出可用产品界面 |
+| 8 | [advanced/08_async_workflows](advanced/08_async_workflows/) | 队列、批量 embedding、长任务状态、取消和重试 | 支撑长任务 |
+| 9 | [advanced/09_deployment_operations](advanced/09_deployment_operations/) | Docker Compose、Nginx、数据库、向量库、灰度回滚 | 完成生产部署 |
+| 10 | [advanced/10_production_capstone](advanced/10_production_capstone/) | 将毕业项目升级成生产级 AI 应用 | 综合实战 |
+
 ## 分角色学习路径
 
 - **零基础大学生（建议 14-16 周）**：按路线图顺序学习，每周 1 个模块。
@@ -36,6 +58,9 @@
 - **在职工程师（建议 4 周速成）**：已会 Python 和 Web 开发，可直接从第 4 站开始：
   `llm_api → prompt → rag → langchain → langgraph → memory → mcp → skills → deepagents`，
   tools/protocols/fastapi 按需查阅，evaluation 与 local_models 收尾。
+- **准备做生产项目的工程师（建议 3-6 周）**：先跑通 `tutorials/capstone`，
+  再学习 `advanced/01_product_architecture → advanced/02_knowledge_engineering → advanced/03_production_rag →
+  advanced/05_quality_engineering → advanced/06_observability_cost → advanced/09_deployment_operations`。
 
 ## 章节结构约定
 
