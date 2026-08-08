@@ -3,6 +3,7 @@
 `tutorials/` 是本项目的基础教程区，目标是让学习者从 Python 与 HTTP 开始，逐步掌握构建 LLM 应用所需的核心能力：
 
 - 会调用模型 API，理解消息、参数、流式输出、工具调用和错误处理。
+- 会理解 Transformer 的基本原理：token、embedding、attention 和自回归生成。
 - 会写 Prompt，并能用评估集迭代 Prompt。
 - 会构建最小 RAG：embedding、切块、向量检索、引用回答。
 - 会用 FastAPI 暴露 AI 应用接口。
@@ -36,7 +37,7 @@ uv run <章节脚本>
 零基础路径：
 
 ```text
-tools → basic → protocols → llm_api → prompt → rag → fastapi → langchain → langgraph
+tools → basic → protocols → transformer → llm_api → prompt → rag → fastapi → langchain → langgraph
 ```
 
 Agent 路径：

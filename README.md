@@ -17,22 +17,23 @@
 | 1 | [tutorials/tools](tutorials/tools/) | 开发工具：venv、uv 包管理、uvicorn | ⭐ |
 | 2 | [tutorials/basic](tutorials/basic/) | Python 基础：json、asyncio、aiohttp | ⭐ |
 | 3 | [tutorials/protocols](tutorials/protocols/) | HTTP/HTTPS 协议与 Python HTTP 客户端 | ⭐⭐ |
-| 4 | [tutorials/llm_api](tutorials/llm_api/) | **第一次调用 LLM API**：消息、参数、流式、工具调用、错误处理 | ⭐ |
-| 5 | [tutorials/prompt](tutorials/prompt/) | **提示词工程**：结构、few-shot、输出控制、思维链、迭代方法 | ⭐⭐ |
-| 6 | [tutorials/rag](tutorials/rag/) | RAG：Embedding、切块、向量库、检索问答 | ⭐⭐ |
-| 7 | [tutorials/fastapi](tutorials/fastapi/) | FastAPI 框架：12 章 + Todo API 完整项目 | ⭐⭐ |
-| 8 | [tutorials/langchain](tutorials/langchain/) | LangChain 1.x：组件、LCEL、RAG、工具、LangSmith | ⭐⭐⭐ |
-| 9 | [tutorials/langgraph](tutorials/langgraph/) | LangGraph：状态图、循环、ReAct Agent、人机协作、持久化 | ⭐⭐⭐ |
-| 10 | [tutorials/memory](tutorials/memory/) | Agent 记忆：短期策略、长期闭环、语义召回、Store | ⭐⭐⭐ |
-| 11 | [tutorials/mcp](tutorials/mcp/) | MCP：Server/Client、三种原语、协议细节 | ⭐⭐⭐ |
-| 12 | [tutorials/skills](tutorials/skills/) | Skills：把可复用经验封装成 Agent 能自动加载的能力包 | ⭐⭐⭐ |
-| 13 | [tutorials/deepagents](tutorials/deepagents/) | Deep Agents：规划、上下文卸载、子代理、存储后端 | ⭐⭐⭐ |
-| 14 | [tutorials/evaluation](tutorials/evaluation/) | 评估：评估集、LLM-as-judge、RAG 检索指标 | ⭐⭐⭐ |
-| 15 | [tutorials/local_models](tutorials/local_models/) | 本地模型：Ollama、本地 Embedding（离线/合规场景） | ⭐⭐ |
-| 16 | [tutorials/security](tutorials/security/) | LLM 应用安全：提示词注入、间接注入、纵深防御 | ⭐⭐⭐ |
-| 17 | [tutorials/multimodal](tutorials/multimodal/) | 多模态：图像理解、语音转写（ASR→LLM 管道） | ⭐⭐ |
-| 18 | [tutorials/multi_agent](tutorials/multi_agent/) | 多 Agent 设计模式：流水线、主管、交接 | ⭐⭐⭐ |
-| 19 | [tutorials/capstone](tutorials/capstone/) | **毕业项目**：云雀笔记智能客服（RAG+Agent+SSE 流式+评测） | ⭐⭐⭐ |
+| 4 | [tutorials/transformer](tutorials/transformer/) | Transformer 原理：Token、Embedding、Attention、Decoder 生成 | ⭐⭐ |
+| 5 | [tutorials/llm_api](tutorials/llm_api/) | **第一次调用 LLM API**：消息、参数、流式、工具调用、错误处理 | ⭐ |
+| 6 | [tutorials/prompt](tutorials/prompt/) | **提示词工程**：结构、few-shot、输出控制、思维链、迭代方法 | ⭐⭐ |
+| 7 | [tutorials/rag](tutorials/rag/) | RAG：Embedding、切块、向量库、检索问答 | ⭐⭐ |
+| 8 | [tutorials/fastapi](tutorials/fastapi/) | FastAPI 框架：12 章 + Todo API 完整项目 | ⭐⭐ |
+| 9 | [tutorials/langchain](tutorials/langchain/) | LangChain 1.x：组件、LCEL、RAG、工具、LangSmith | ⭐⭐⭐ |
+| 10 | [tutorials/langgraph](tutorials/langgraph/) | LangGraph：状态图、循环、ReAct Agent、人机协作、持久化 | ⭐⭐⭐ |
+| 11 | [tutorials/memory](tutorials/memory/) | Agent 记忆：短期策略、长期闭环、语义召回、Store | ⭐⭐⭐ |
+| 12 | [tutorials/mcp](tutorials/mcp/) | MCP：Server/Client、三种原语、协议细节 | ⭐⭐⭐ |
+| 13 | [tutorials/skills](tutorials/skills/) | Skills：把可复用经验封装成 Agent 能自动加载的能力包 | ⭐⭐⭐ |
+| 14 | [tutorials/deepagents](tutorials/deepagents/) | Deep Agents：规划、上下文卸载、子代理、存储后端 | ⭐⭐⭐ |
+| 15 | [tutorials/evaluation](tutorials/evaluation/) | 评估：评估集、LLM-as-judge、RAG 检索指标 | ⭐⭐⭐ |
+| 16 | [tutorials/local_models](tutorials/local_models/) | 本地模型：Ollama、本地 Embedding（离线/合规场景） | ⭐⭐ |
+| 17 | [tutorials/security](tutorials/security/) | LLM 应用安全：提示词注入、间接注入、纵深防御 | ⭐⭐⭐ |
+| 18 | [tutorials/multimodal](tutorials/multimodal/) | 多模态：图像理解、语音转写（ASR→LLM 管道） | ⭐⭐ |
+| 19 | [tutorials/multi_agent](tutorials/multi_agent/) | 多 Agent 设计模式：流水线、主管、交接 | ⭐⭐⭐ |
+| 20 | [tutorials/capstone](tutorials/capstone/) | **毕业项目**：云雀笔记智能客服（RAG+Agent+SSE 流式+评测） | ⭐⭐⭐ |
 
 ## 高级学习路线图
 
