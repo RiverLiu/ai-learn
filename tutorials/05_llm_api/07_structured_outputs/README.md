@@ -10,6 +10,14 @@
 - 解析失败是正常情况，要有修复和重试策略。
 - 结构化输出和 tool calling 相似，但用途不同。
 
+## 运行
+
+本章示例离线运行，使用模拟模型输出演示解析和校验：
+
+```bash
+uv run tutorials/05_llm_api/07_structured_outputs/main.py
+```
+
 ## 示例任务
 
 用户输入：

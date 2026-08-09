@@ -11,6 +11,14 @@ RAG 不只是 embedding 和向量检索。文档进入知识库前，需要做�
 - 每个 chunk 应该带 metadata。
 - 小型知识库也要考虑文档更新和删除。
 
+## 运行
+
+本章不调用模型 API，直接读取 `knowledge_base/` 中的 Markdown 文档：
+
+```bash
+uv run tutorials/07_rag/05_document_ingestion_basics/main.py
+```
+
 ## 最小目录结构
 
 ```text
