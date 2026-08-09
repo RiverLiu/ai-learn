@@ -158,3 +158,45 @@ Skills 适合放在 MCP 和 Deep Agents 之后学习，因为它更偏“把经�
 - Codex Skills 本地规范：`SKILL.md` + `references/` + `scripts/` + `assets/`
 - MCP 教程：[../12_mcp](../12_mcp/)
 - Deep Agents 教程：[../14_deepagents](../14_deepagents/)
+
+## 常见面试题
+
+**Q1：Skill 和 Prompt 有什么区别？**
+
+参考答案：Prompt 是一次请求里的指令，Skill 是可复用能力包，包含说明、参考资料、脚本和资产。
+
+**Q2：Skill 的最小结构是什么？**
+
+参考答案：至少包含 `SKILL.md`，其中 frontmatter 有 `name` 和 `description`，正文写使用流程。
+
+**Q3：为什么 description 很关键？**
+
+参考答案：它决定 Skill 何时触发。应清楚说明能力范围、触发场景、输入类型和输出目标。
+
+**Q4：什么是渐进披露？**
+
+参考答案：先用元数据参与匹配，触发后读正文，需要细节时再读 references 或执行 scripts，节省上下文。
+
+**Q5：references 目录放什么？**
+
+参考答案：放需要时才读的详细资料，如 API 文档、业务规则、schema、流程说明。
+
+**Q6：scripts 目录放什么？**
+
+参考答案：放确定性、重复、容易写错的操作脚本，如文件处理、校验、转换和生成。
+
+**Q7：assets 目录放什么？**
+
+参考答案：放输出中会使用的模板、图片、字体、项目骨架等静态资源。
+
+**Q8：Skill 太长有什么问题？**
+
+参考答案：会占用上下文、干扰任务，并降低可维护性。长资料应拆到 references。
+
+**Q9：如何验证一个 Skill？**
+
+参考答案：用 should trigger 和 should not trigger 样例检查触发范围，并用真实任务验证输出质量。
+
+**Q10：Skill 和 MCP 如何配合？**
+
+参考答案：MCP 提供标准工具连接，Skill 说明什么时候用这些工具、参数怎么填、结果如何处理。

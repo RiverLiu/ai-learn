@@ -63,3 +63,45 @@ export EMBEDDING_MODEL="..."   # 向量模型，默认 text-embedding-3-small
 
 - OpenAI Embeddings：https://platform.openai.com/docs/guides/embeddings
 - 生产级向量数据库：[Chroma](https://www.trychroma.com/)、[Qdrant](https://qdrant.tech/)、[pgvector](https://github.com/pgvector/pgvector)、[Milvus](https://milvus.io/)
+
+## 常见面试题
+
+**Q1：RAG 的基本流程是什么？**
+
+参考答案：离线构建索引：文档清洗、切块、embedding、入库；在线问答：问题 embedding、检索、拼上下文、生成答案。
+
+**Q2：为什么需要切块？**
+
+参考答案：文档太长不能整体检索或放入上下文。切块提高检索粒度，但过大有噪声，过小会丢上下文。
+
+**Q3：Embedding 在 RAG 中的作用是什么？**
+
+参考答案：Embedding 把文本映射成向量，使语义相近的问题和文档 chunk 在向量空间中更接近。
+
+**Q4：为什么索引和查询必须使用同一个 embedding 模型？**
+
+参考答案：不同 embedding 模型的向量空间不同，混用会导致相似度失真，换模型必须重建索引。
+
+**Q5：Top-K 如何影响效果？**
+
+参考答案：K 太小可能漏召回，K 太大可能引入噪声并增加成本。生产中常结合 rerank 和上下文压缩。
+
+**Q6：RAG 能完全消除幻觉吗？**
+
+参考答案：不能。检索失败、文档过期、排序错误或模型忽略证据时仍会幻觉，需要引用、拒答和评估。
+
+**Q7：为什么 metadata 很重要？**
+
+参考答案：metadata 支持来源引用、权限过滤、版本管理和问题定位。没有 metadata，答案即使正确也难以审计。
+
+**Q8：向量库和普通数据库有什么区别？**
+
+参考答案：向量库擅长相似度检索，普通数据库擅长结构化查询。生产 RAG 常同时使用两者。
+
+**Q9：RAG 失败如何排查？**
+
+参考答案：先看是否召回正确文档，再看排序、chunk 内容、上下文拼接和模型回答是否忠实。
+
+**Q10：为什么文档更新后要重建索引？**
+
+参考答案：文档内容变化会改变 chunk 和 embedding。旧向量不删除会导致模型回答过期信息。

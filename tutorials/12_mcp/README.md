@@ -62,3 +62,45 @@ uv sync
 
 - 官方文档：https://modelcontextprotocol.io
 - Python SDK：https://github.com/modelcontextprotocol/python-sdk
+
+## 常见面试题
+
+**Q1：MCP 解决什么问题？**
+
+参考答案：MCP 标准化 AI 应用与外部工具、数据源和提示词模板的连接方式，降低多客户端多工具集成成本。
+
+**Q2：MCP 的 Tools、Resources、Prompts 有什么区别？**
+
+参考答案：Tools 是可执行函数，Resources 是可读取数据，Prompts 是可复用提示词模板。
+
+**Q3：stdio 和 HTTP 传输如何选择？**
+
+参考答案：stdio 适合本地子进程工具，HTTP 适合远程服务、多用户和独立部署。
+
+**Q4：MCP Server 是什么？**
+
+参考答案：Server 是暴露工具、资源或提示词的轻量程序，连接本地文件、数据库或外部 API。
+
+**Q5：MCP Client 是什么？**
+
+参考答案：Client 嵌在宿主应用中，负责和某个 Server 建立连接、协商能力并转发调用。
+
+**Q6：为什么 stdio Server 不能随便 print？**
+
+参考答案：stdout 用于协议消息，普通 print 会污染 JSON-RPC 流，应把日志写到 stderr。
+
+**Q7：MCP 和普通 function calling 有什么关系？**
+
+参考答案：function calling 是模型调用工具的模型接口，MCP 是工具和数据源接入应用的标准协议。
+
+**Q8：Resources 适合什么场景？**
+
+参考答案：适合读取文件、配置、记录、数据库片段等上下文数据，不一定触发执行动作。
+
+**Q9：MCP 工具为什么仍需权限控制？**
+
+参考答案：协议只定义能力暴露和调用方式，不自动解决业务权限、审计和高风险审批。
+
+**Q10：什么时候没必要用 MCP？**
+
+参考答案：如果工具只在一个后端内部使用，普通函数或 tool calling 更简单；需要跨客户端复用时再考虑 MCP。

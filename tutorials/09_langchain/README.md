@@ -52,3 +52,45 @@ export MODEL_NAME="kimi-for-coding"
 - 官方文档：https://docs.langchain.com（新版）/ https://python.langchain.com
 - LangGraph：https://langchain-ai.github.io/langgraph/
 - LangSmith：https://smith.langchain.com
+
+## 常见面试题
+
+**Q1：LangChain 解决什么问题？**
+
+参考答案：它封装模型、Prompt、解析器、工具和检索器等组件，降低 LLM 应用组合成本。
+
+**Q2：LCEL 的核心思想是什么？**
+
+参考答案：用 Runnable 和 `|` 管道组合组件，让数据从 Prompt 到模型再到解析器顺序流动。
+
+**Q3：ChatOpenAI 读取哪些配置？**
+
+参考答案：通常读取 `OPENAI_API_KEY` 和 `OPENAI_BASE_URL`，模型名可由代码或环境变量指定。
+
+**Q4：PromptTemplate 和手写字符串相比有什么优势？**
+
+参考答案：模板能集中管理变量、复用结构，并减少拼接错误。
+
+**Q5：输出解析器有什么作用？**
+
+参考答案：把模型文本输出转成结构化对象，并在格式错误时提供校验或修复入口。
+
+**Q6：LangChain Tool 的核心是什么？**
+
+参考答案：工具用函数、类型注解和描述生成 schema，让模型知道何时调用以及需要哪些参数。
+
+**Q7：LangChain RAG 组件对应手写 RAG 的哪些步骤？**
+
+参考答案：Loader、Splitter、Embeddings、VectorStore、Retriever、Prompt 和 ChatModel 分别对应加载、切块、向量化、存储、检索和生成。
+
+**Q8：LangSmith 有什么价值？**
+
+参考答案：它记录调用链路、输入输出、Prompt、工具调用和评估结果，方便调试和对比版本。
+
+**Q9：LangChain 和 LangGraph 如何分工？**
+
+参考答案：LangChain 提供组件和简单链式组合；LangGraph 负责复杂状态机、循环、分支和持久化 Agent。
+
+**Q10：什么时候不需要 LangChain？**
+
+参考答案：任务很简单、只需一两次 API 调用时，直接用 SDK 更清晰，依赖更少。

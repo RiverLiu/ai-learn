@@ -148,3 +148,45 @@ Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) V
 - Vaswani et al., Attention Is All You Need, 2017
 - The Illustrated Transformer: https://jalammar.github.io/illustrated-transformer/
 - The Annotated Transformer: https://nlp.seas.harvard.edu/annotated-transformer/
+
+## 常见面试题
+
+**Q1：Self-Attention 中 Q、K、V 分别是什么？**
+
+参考答案：Q 是当前 token 的查询，K 是其它 token 的匹配索引，V 是被加权汇总的内容。Attention 先用 Q 和 K 计算相关性，再按权重汇总 V。
+
+**Q2：为什么 Decoder-only 模型需要 Masked Self-Attention？**
+
+参考答案：因为语言模型训练和生成时只能根据前文预测下一个 token，不能看到未来 token。causal mask 会屏蔽当前位置之后的信息。
+
+**Q3：Multi-Head Attention 的作用是什么？**
+
+参考答案：多个 attention head 可以从不同子空间学习关系，例如语法、指代、局部邻近和实体属性，最后拼接融合，提高表达能力。
+
+**Q4：为什么 Transformer 需要位置编码？**
+
+参考答案：Self-Attention 本身不天然感知顺序。位置编码让模型区分“狗咬人”和“人咬狗”这类 token 相同但顺序不同的句子。
+
+**Q5：残差连接有什么作用？**
+
+参考答案：残差连接让信息和梯度更容易穿过深层网络，使每层在原表示上做增量修改，提升训练稳定性。
+
+**Q6：LayerNorm 的作用是什么？**
+
+参考答案：LayerNorm 对隐藏状态做归一化，稳定数值分布，帮助深层 Transformer 更稳定训练和推理。
+
+**Q7：为什么长上下文成本高？**
+
+参考答案：Attention 需要处理 token 间关系，序列越长计算、显存和 KV Cache 占用越大，同时输入 token 成本和延迟也会上升。
+
+**Q8：什么是自回归生成？**
+
+参考答案：模型每次预测下一个 token，把生成的新 token 加入上下文，再继续预测，直到遇到停止条件或达到长度限制。
+
+**Q9：KV Cache 有什么作用？**
+
+参考答案：生成时缓存历史 token 的 Key 和 Value，后续只计算新 token，避免每步重复计算全部上下文，提高推理效率。
+
+**Q10：Transformer 为什么仍可能幻觉？**
+
+参考答案：训练目标是预测概率最高的 token，不是验证事实。缺少证据、检索错误或 prompt 不清时，模型可能生成看似合理但不真实的内容。
