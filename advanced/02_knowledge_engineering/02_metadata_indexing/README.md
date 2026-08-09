@@ -31,4 +31,4 @@
 
 ## 练习
 
-为 `tutorials/rag/knowledge_base` 中的三篇 Markdown 设计统一 metadata schema，并说明每个字段用于哪个生产问题。
+为 `tutorials/07_rag/knowledge_base` 中的三篇 Markdown 设计统一 metadata schema，并说明每个字段用于哪个生产问题。

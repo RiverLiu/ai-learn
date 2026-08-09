@@ -14,30 +14,30 @@
 
 | 顺序 | 模块 | 内容 | 难度 |
 | --- | --- | --- | --- |
-| 1 | [tutorials/tools](tutorials/tools/) | 开发工具：venv、uv 包管理、uvicorn | ⭐ |
-| 2 | [tutorials/basic](tutorials/basic/) | Python 基础：json、asyncio、aiohttp | ⭐ |
-| 3 | [tutorials/protocols](tutorials/protocols/) | HTTP/HTTPS 协议与 Python HTTP 客户端 | ⭐⭐ |
-| 4 | [tutorials/transformer](tutorials/transformer/) | Transformer 原理：Token、Embedding、Attention、Decoder 生成 | ⭐⭐ |
-| 5 | [tutorials/llm_api](tutorials/llm_api/) | **第一次调用 LLM API**：消息、参数、流式、工具调用、错误处理 | ⭐ |
-| 6 | [tutorials/prompt](tutorials/prompt/) | **提示词工程**：结构、few-shot、输出控制、思维链、迭代方法 | ⭐⭐ |
-| 7 | [tutorials/rag](tutorials/rag/) | RAG：Embedding、切块、向量库、检索问答 | ⭐⭐ |
-| 8 | [tutorials/fastapi](tutorials/fastapi/) | FastAPI 框架：12 章 + Todo API 完整项目 | ⭐⭐ |
-| 9 | [tutorials/langchain](tutorials/langchain/) | LangChain 1.x：组件、LCEL、RAG、工具、LangSmith | ⭐⭐⭐ |
-| 10 | [tutorials/langgraph](tutorials/langgraph/) | LangGraph：状态图、循环、ReAct Agent、人机协作、持久化 | ⭐⭐⭐ |
-| 11 | [tutorials/memory](tutorials/memory/) | Agent 记忆：短期策略、长期闭环、语义召回、Store | ⭐⭐⭐ |
-| 12 | [tutorials/mcp](tutorials/mcp/) | MCP：Server/Client、三种原语、协议细节 | ⭐⭐⭐ |
-| 13 | [tutorials/skills](tutorials/skills/) | Skills：把可复用经验封装成 Agent 能自动加载的能力包 | ⭐⭐⭐ |
-| 14 | [tutorials/deepagents](tutorials/deepagents/) | Deep Agents：规划、上下文卸载、子代理、存储后端 | ⭐⭐⭐ |
-| 15 | [tutorials/evaluation](tutorials/evaluation/) | 评估：评估集、LLM-as-judge、RAG 检索指标 | ⭐⭐⭐ |
-| 16 | [tutorials/local_models](tutorials/local_models/) | 本地模型：Ollama、本地 Embedding（离线/合规场景） | ⭐⭐ |
-| 17 | [tutorials/security](tutorials/security/) | LLM 应用安全：提示词注入、间接注入、纵深防御 | ⭐⭐⭐ |
-| 18 | [tutorials/multimodal](tutorials/multimodal/) | 多模态：图像理解、语音转写（ASR→LLM 管道） | ⭐⭐ |
-| 19 | [tutorials/multi_agent](tutorials/multi_agent/) | 多 Agent 设计模式：流水线、主管、交接 | ⭐⭐⭐ |
-| 20 | [tutorials/capstone](tutorials/capstone/) | **毕业项目**：云雀笔记智能客服（RAG+Agent+SSE 流式+评测） | ⭐⭐⭐ |
+| 1 | [tutorials/01_tools](tutorials/01_tools/) | 开发工具：venv、uv 包管理、uvicorn | ⭐ |
+| 2 | [tutorials/02_basic](tutorials/02_basic/) | Python 基础：json、asyncio、aiohttp | ⭐ |
+| 3 | [tutorials/03_protocols](tutorials/03_protocols/) | HTTP/HTTPS 协议与 Python HTTP 客户端 | ⭐⭐ |
+| 4 | [tutorials/04_transformer](tutorials/04_transformer/) | Transformer 原理：Token、Embedding、Attention、Decoder 生成 | ⭐⭐ |
+| 5 | [tutorials/05_llm_api](tutorials/05_llm_api/) | **第一次调用 LLM API**：消息、参数、流式、工具调用、错误处理 | ⭐ |
+| 6 | [tutorials/06_prompt](tutorials/06_prompt/) | **提示词工程**：结构、few-shot、输出控制、思维链、迭代方法 | ⭐⭐ |
+| 7 | [tutorials/07_rag](tutorials/07_rag/) | RAG：Embedding、切块、向量库、检索问答 | ⭐⭐ |
+| 8 | [tutorials/08_fastapi](tutorials/08_fastapi/) | FastAPI 框架：12 章 + Todo API 完整项目 | ⭐⭐ |
+| 9 | [tutorials/09_langchain](tutorials/09_langchain/) | LangChain 1.x：组件、LCEL、RAG、工具、LangSmith | ⭐⭐⭐ |
+| 10 | [tutorials/10_langgraph](tutorials/10_langgraph/) | LangGraph：状态图、循环、ReAct Agent、人机协作、持久化 | ⭐⭐⭐ |
+| 11 | [tutorials/11_memory](tutorials/11_memory/) | Agent 记忆：短期策略、长期闭环、语义召回、Store | ⭐⭐⭐ |
+| 12 | [tutorials/12_mcp](tutorials/12_mcp/) | MCP：Server/Client、三种原语、协议细节 | ⭐⭐⭐ |
+| 13 | [tutorials/13_skills](tutorials/13_skills/) | Skills：把可复用经验封装成 Agent 能自动加载的能力包 | ⭐⭐⭐ |
+| 14 | [tutorials/14_deepagents](tutorials/14_deepagents/) | Deep Agents：规划、上下文卸载、子代理、存储后端 | ⭐⭐⭐ |
+| 15 | [tutorials/15_evaluation](tutorials/15_evaluation/) | 评估：评估集、LLM-as-judge、RAG 检索指标 | ⭐⭐⭐ |
+| 16 | [tutorials/16_local_models](tutorials/16_local_models/) | 本地模型：Ollama、本地 Embedding（离线/合规场景） | ⭐⭐ |
+| 17 | [tutorials/17_security](tutorials/17_security/) | LLM 应用安全：提示词注入、间接注入、纵深防御 | ⭐⭐⭐ |
+| 18 | [tutorials/18_multimodal](tutorials/18_multimodal/) | 多模态：图像理解、语音转写（ASR→LLM 管道） | ⭐⭐ |
+| 19 | [tutorials/19_multi_agent](tutorials/19_multi_agent/) | 多 Agent 设计模式：流水线、主管、交接 | ⭐⭐⭐ |
+| 20 | [tutorials/20_capstone](tutorials/20_capstone/) | **毕业项目**：云雀笔记智能客服（RAG+Agent+SSE 流式+评测） | ⭐⭐⭐ |
 
 ## 高级学习路线图
 
-高级教程默认读者已经完成基础路线中的 `llm_api → prompt → rag → fastapi → langchain/langgraph → evaluation → capstone`。
+高级教程默认读者已经完成基础路线中的 `05_llm_api → 06_prompt → 07_rag → 08_fastapi → 09_langchain/10_langgraph → 15_evaluation → 20_capstone`。
 
 | 顺序 | 模块 | 内容 | 目标 |
 | --- | --- | --- | --- |
@@ -55,11 +55,11 @@
 ## 分角色学习路径
 
 - **零基础大学生（建议 14-16 周）**：按路线图顺序学习，每周 1 个模块。
-  tools/basic 跟不上时先补 Python 语法。
-- **在职工程师（建议 4 周速成）**：已会 Python 和 Web 开发，可直接从第 4 站开始：
-  `llm_api → prompt → rag → langchain → langgraph → memory → mcp → skills → deepagents`，
-  tools/protocols/fastapi 按需查阅，evaluation 与 local_models 收尾。
-- **准备做生产项目的工程师（建议 3-6 周）**：先跑通 `tutorials/capstone`，
+  `01_tools` / `02_basic` 跟不上时先补 Python 语法。
+- **在职工程师（建议 4 周速成）**：已会 Python 和 Web 开发，可直接从第 5 站开始：
+  `05_llm_api → 06_prompt → 07_rag → 09_langchain → 10_langgraph → 11_memory → 12_mcp → 13_skills → 14_deepagents`，
+  `01_tools` / `03_protocols` / `08_fastapi` 按需查阅，`15_evaluation` 与 `16_local_models` 收尾。
+- **准备做生产项目的工程师（建议 3-6 周）**：先跑通 `tutorials/20_capstone`，
   再学习 `advanced/01_product_architecture → advanced/02_knowledge_engineering → advanced/03_production_rag →
   advanced/05_quality_engineering → advanced/06_observability_cost → advanced/09_deployment_operations`。
 
@@ -92,13 +92,13 @@ MODEL_NAME=kimi-for-coding
 EMBEDDING_MODEL=text-embedding-3-small   # 仅 RAG/评估等需要向量模型的章节
 ```
 
-本地/离线方案见 [tutorials/local_models](tutorials/local_models/)。
+本地/离线方案见 [tutorials/16_local_models](tutorials/16_local_models/)。
 常见配置错误见 [踩坑 FAQ](tutorials/faq.md)，生词见 [术语表](tutorials/glossary.md)。
 
 ## FastAPI 教程快速开始
 
 ```bash
-cd tutorials/fastapi/01_hello_fastapi
+cd tutorials/08_fastapi/01_hello_fastapi
 uv run uvicorn main:app --reload
 ```
 

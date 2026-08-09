@@ -220,7 +220,7 @@ def test_refund_answer_contains_required_facts(rag_app):
 
 ## 实践任务
 
-为 [tutorials/capstone](../../../tutorials/capstone/) 增加测试计划：
+为 [tutorials/20_capstone](../../../tutorials/20_capstone/) 增加测试计划：
 
 1. 单元测试：知识库加载、检索、配置读取。
 2. Mock 测试：聊天接口不调用真实模型也能返回流。

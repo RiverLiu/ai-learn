@@ -245,7 +245,7 @@ Prompt 增加约束：
 
 ## 实践任务
 
-在 [tutorials/rag/04_rag_pipeline](../../tutorials/rag/04_rag_pipeline/) 基础上升级：
+在 [tutorials/07_rag/04_rag_pipeline](../../tutorials/07_rag/04_rag_pipeline/) 基础上升级：
 
 1. 加入关键词检索。
 2. 用 RRF 合并向量和关键词结果。

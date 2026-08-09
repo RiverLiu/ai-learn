@@ -195,7 +195,7 @@ data: {"type":"message_end","message_id":"m_001"}
 
 ## 实践任务
 
-基于 [tutorials/fastapi/13_streaming_sse](../../tutorials/fastapi/13_streaming_sse/)：
+基于 [tutorials/08_fastapi/13_streaming_sse](../../tutorials/08_fastapi/13_streaming_sse/)：
 
 1. 把 token 事件改成结构化事件。
 2. 增加 `message_start`、`retrieval`、`message_end`。

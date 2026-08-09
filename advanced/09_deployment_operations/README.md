@@ -171,7 +171,7 @@ EMBEDDING_MODEL=text-embedding-3-small
 
 ## 实践任务
 
-为 [tutorials/capstone](../../tutorials/capstone/) 设计生产部署方案：
+为 [tutorials/20_capstone](../../tutorials/20_capstone/) 设计生产部署方案：
 
 1. API 和 Worker 分开部署。
 2. Postgres 存会话、任务和反馈。

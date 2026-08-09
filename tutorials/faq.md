@@ -30,7 +30,7 @@ Kimi Code 端点、DeepSeek 等只提供聊天接口，没有 `/v1/embeddings`�
 
 **模型"没有记忆"：第二次调用忘了第一次说的名字**
 不是 bug。LLM 每次调用都是独立的，记忆 = 把历史消息一起发给模型
-（见 `tutorials/llm_api/03_conversation` 与 `tutorials/memory/`）。
+（见 `tutorials/05_llm_api/03_conversation` 与 `tutorials/11_memory/`）。
 
 **流式输出是空的 / 回答被截断**
 检查 `max_tokens` 是否太小（思考型模型的推理过程也消耗输出 token）。

@@ -189,7 +189,7 @@ AI 质量指标：
 
 ## 实践任务
 
-为 [tutorials/capstone](../../../tutorials/capstone/) 设计日志表：
+为 [tutorials/20_capstone](../../../tutorials/20_capstone/) 设计日志表：
 
 - `chat_messages`
 - `llm_calls`

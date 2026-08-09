@@ -222,7 +222,7 @@ uploaded → parsing → parsed → chunking → embedding → indexed → activ
 
 ## 实践任务
 
-为 [tutorials/rag/knowledge_base](../../../tutorials/rag/knowledge_base/) 设计一个生产版摄取管道：
+为 [tutorials/07_rag/knowledge_base](../../../tutorials/07_rag/knowledge_base/) 设计一个生产版摄取管道：
 
 1. 为每个 Markdown 文件生成 `document_id` 和版本号。
 2. 按标题切块。

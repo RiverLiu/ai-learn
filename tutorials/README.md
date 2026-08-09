@@ -37,23 +37,23 @@ uv run <章节脚本>
 零基础路径：
 
 ```text
-tools → basic → protocols → transformer → llm_api → prompt → rag → fastapi → langchain → langgraph
+01_tools → 02_basic → 03_protocols → 04_transformer → 05_llm_api → 06_prompt → 07_rag → 08_fastapi → 09_langchain → 10_langgraph
 ```
 
 Agent 路径：
 
 ```text
-llm_api → prompt → langchain → langgraph → memory → mcp → skills → deepagents → multi_agent
+05_llm_api → 06_prompt → 09_langchain → 10_langgraph → 11_memory → 12_mcp → 13_skills → 14_deepagents → 19_multi_agent
 ```
 
 RAG 路径：
 
 ```text
-llm_api → prompt → rag → evaluation → security → local_models → advanced/02_knowledge_engineering → advanced/03_production_rag
+05_llm_api → 06_prompt → 07_rag → 15_evaluation → 17_security → 16_local_models → advanced/02_knowledge_engineering → advanced/03_production_rag
 ```
 
 工程化路径：
 
 ```text
-fastapi → security → evaluation → capstone → advanced/01_product_architecture → advanced/05_quality_engineering → advanced/09_deployment_operations
+08_fastapi → 17_security → 15_evaluation → 20_capstone → advanced/01_product_architecture → advanced/05_quality_engineering → advanced/09_deployment_operations
 ```

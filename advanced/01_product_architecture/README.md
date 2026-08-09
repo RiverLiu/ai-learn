@@ -193,7 +193,7 @@ stream = ai_orchestrator.answer(message=message, documents=docs)
 
 ## 实践任务
 
-基于 [tutorials/capstone](../../tutorials/capstone/) 画出当前架构，并标出：
+基于 [tutorials/20_capstone](../../tutorials/20_capstone/) 画出当前架构，并标出：
 
 - API 层在哪里。
 - RAG 检索在哪里。

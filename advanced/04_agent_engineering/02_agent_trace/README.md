@@ -25,4 +25,4 @@ Agent 的最终答案正确，不代表过程安全。生产系统要记录它�
 
 ## 练习
 
-为 `tutorials/langgraph/03_react_agent` 增加一个轨迹结构设计，说明如何限制最大工具调用步数。
+为 `tutorials/10_langgraph/03_react_agent` 增加一个轨迹结构设计，说明如何限制最大工具调用步数。

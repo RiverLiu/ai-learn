@@ -24,4 +24,4 @@ failed_cases:
 
 ## 练习
 
-为 `tutorials/evaluation` 设计一个 GitHub Actions 流程：PR 跑 10 条样本，夜间跑完整样本。
+为 `tutorials/15_evaluation` 设计一个 GitHub Actions 流程：PR 跑 10 条样本，夜间跑完整样本。

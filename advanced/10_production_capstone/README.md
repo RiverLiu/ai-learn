@@ -1,6 +1,6 @@
 # 10 生产级毕业项目
 
-[tutorials/capstone](../../tutorials/capstone/) 已经把 RAG、Agent、SSE 和评估串成了一个可运行项目。
+[tutorials/20_capstone](../../tutorials/20_capstone/) 已经把 RAG、Agent、SSE 和评估串成了一个可运行项目。
 本章给出升级路线，把它从教学 demo 推向生产级 AI 应用。
 
 ## 升级目标

@@ -19,5 +19,5 @@
 
 ## 与基础教程的关系
 
-先学 [tutorials/rag](../../tutorials/rag/) 理解 embedding、chunking 和向量检索。
+先学 [tutorials/07_rag](../../tutorials/07_rag/) 理解 embedding、chunking 和向量检索。
 再学本模块，把“手写知识库 demo”升级成“可维护知识库系统”。

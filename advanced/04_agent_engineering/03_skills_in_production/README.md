@@ -24,4 +24,4 @@ customer-support-skill/
 
 ## 练习
 
-把 `tutorials/skills/01_anatomy/csv-cleaner` 改造成团队可复用 Skill，补充 5 条 should trigger 和 5 条 should not trigger 样例。
+把 `tutorials/13_skills/01_anatomy/csv-cleaner` 改造成团队可复用 Skill，补充 5 条 should trigger 和 5 条 should not trigger 样例。

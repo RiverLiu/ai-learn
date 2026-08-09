@@ -1,0 +1,16 @@
+{
+  "name": "小明",
+  "age": 26,
+  "is_student": false,
+  "skills": [
+    "Python",
+    "Git",
+    "Linux",
+    "asyncio"
+  ],
+  "address": {
+    "city": "杭州",
+    "district": "西湖区"
+  },
+  "score": null
+}
