@@ -36,8 +36,10 @@ LLM 的知识截止于训练数据，且无法访问你的私有文档。两种�
 3. [03_vector_store](./03_vector_store/)：手写一个向量数据库，构建知识库索引
 4. [04_rag_pipeline](./04_rag_pipeline/)：完整 RAG——检索 + 生成，带出处引用
 5. [05_document_ingestion_basics](./05_document_ingestion_basics/)：文档准备、清洗、metadata 与来源保留
+6. [06_evaluation_metrics](./06_evaluation_metrics/)：RAG 评估指标——检索、生成、引用与线上质量
+99. [99_intreview](./99_intreview/)：RAG 高频面试题与参考答案
 
-示例知识库放在 [knowledge_base](./knowledge_base/)（一个虚构产品"云雀笔记"的文档），第 2～5 章共用。
+示例知识库放在 [knowledge_base](./knowledge_base/)（一个虚构产品"云雀笔记"的文档），第 2～6 章共用。
 
 ## 环境准备
 
@@ -57,7 +59,7 @@ export MODEL_NAME="..."        # 聊天模型，默认 gpt-4o-mini
 export EMBEDDING_MODEL="..."   # 向量模型，默认 text-embedding-3-small
 ```
 
-第 2 章不调用任何 API，可以无密钥直接运行。
+第 2、6 章不调用任何 API，可以无密钥直接运行。
 
 ## 参考
 
