@@ -52,6 +52,27 @@
 | `scripts/eval.py` | 评估集 + LLM 评委打分 | `tutorials/15_evaluation/` |
 | `app/config.py` | 环境变量管理密钥 | 各教程 `.env` 惯例 |
 
+## 学习前置检查表
+
+开始 Capstone 前，建议至少确认这些能力已经跑通过：
+
+- `tutorials/05_llm_api/01_hello_llm`：能成功调用聊天模型。
+- `tutorials/05_llm_api/06_embeddings_api`：理解聊天模型和向量模型的区别。
+- `tutorials/07_rag/04_rag_pipeline`：能跑通知识库检索问答。
+- `tutorials/08_fastapi/13_streaming_sse`：理解 SSE 流式输出。
+- `tutorials/10_langgraph/03_react_agent`：理解工具调用 Agent。
+- `tutorials/15_evaluation/02_llm_judge`：理解 LLM-as-judge 的基本评估方式。
+
+如果启动 Capstone 失败，优先回看：
+
+| 问题 | 回看章节 |
+| --- | --- |
+| API Key / Base URL 报错 | `tutorials/01_tools/05_env_config.md`、`tutorials/05_llm_api` |
+| embedding 接口不可用 | `tutorials/05_llm_api/06_embeddings_api`、`tutorials/07_rag/01_embeddings` |
+| 检索结果不准 | `tutorials/07_rag/02_chunking`、`tutorials/07_rag/04_rag_pipeline` |
+| 流式输出看不懂 | `tutorials/08_fastapi/13_streaming_sse` |
+| Agent 工具调用异常 | `tutorials/05_llm_api/08_tool_safety`、`tutorials/10_langgraph/03_react_agent` |
+
 ## 双服务配置：聊天一家、向量一家
 
 国内落地时，聊天模型和向量模型常常不在同一家服务商：比如聊天用

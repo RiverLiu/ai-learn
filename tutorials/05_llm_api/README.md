@@ -14,6 +14,9 @@ LLM 应用的地基：后面学的 RAG、LangChain、Agent，拆到底层都是�
 3. [03_conversation](./03_conversation/)：多轮对话——模型没有记忆，历史要自己维护
 4. [04_function_calling](./04_function_calling/)：工具调用循环——让模型操作外部世界
 5. [05_errors_retry](./05_errors_retry/)：常见错误、指数退避重试、token 成本估算
+6. [06_embeddings_api](./06_embeddings_api/)：Embeddings API——把文本变成向量，为 RAG 打地基
+7. [07_structured_outputs](./07_structured_outputs/)：结构化输出进阶——JSON Schema、校验、修复与重试
+8. [08_tool_safety](./08_tool_safety/)：工具调用安全——权限、参数校验、审批和审计
 
 ## 环境准备
 

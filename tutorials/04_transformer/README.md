@@ -85,6 +85,7 @@ flowchart TD
 3. [03_multi_head_position](./03_multi_head_position/)：Multi-Head Attention、位置编码与残差连接
 4. [04_decoder_generation](./04_decoder_generation/)：Decoder-only Transformer 与自回归生成
 5. [05_limitations](./05_limitations/)：上下文窗口、幻觉、计算成本与工程启发
+6. [06_llm_concepts](./06_llm_concepts/)：从 Transformer 到 LLM API 的关键概念过渡
 
 ## 核心公式速览
 

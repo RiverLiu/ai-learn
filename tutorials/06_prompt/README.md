@@ -18,6 +18,7 @@
 3. [03_output_control](./03_output_control/)：强制 JSON 输出与解析失败的兜底
 4. [04_reasoning](./04_reasoning/)：思维链——先推理后答案，再自我检查
 5. [05_iteration](./05_iteration/)：提示词迭代方法论——用数据而不是感觉调提示词
+6. [06_prompt_boundaries](./06_prompt_boundaries/)：提示词边界——安全、权限和系统规则不能只靠 prompt
 
 ## 环境准备
 

@@ -19,6 +19,7 @@
 
 1. [01_ollama](./01_ollama/)：Ollama 安装与使用，本地跑 Qwen3，OpenAI 兼容端点接入整套教程
 2. [02_local_embedding](./02_local_embedding/)：本地向量模型（bge-m3），让 RAG 教程的索引和检索也离线化
+3. [03_model_selection](./03_model_selection/)：本地模型选型——聊天、向量、rerank、量化、显存与中文能力
 
 ## 环境准备
 
