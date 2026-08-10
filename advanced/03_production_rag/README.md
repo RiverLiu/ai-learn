@@ -1,16 +1,47 @@
 # 03 生产级 RAG 进阶
 
-基础 RAG 的流程是“问题 → 向量检索 → 拼上下文 → 生成答案”。
-生产 RAG 需要处理更复杂的问题：用户问法模糊、关键词精确匹配、权限过滤、召回不足、排序错误、引用不可信和答案幻觉。
+基础 RAG 的流程是：
 
-## 本章要点
+```text
+问题 -> 向量检索 -> 拼上下文 -> 生成答案
+```
 
-- 生产 RAG 是一组策略组合，不是单一向量库。
-- 检索质量要拆成召回、排序、上下文组装和生成忠实度分别优化。
-- hybrid search、rerank、query rewrite 和 metadata filter 是最常用的四个增强点。
-- RAG 失败要能分类，否则只能靠感觉调参数。
+生产 RAG 不是把向量库换大一点，而是把“为什么答错”拆开定位：
+
+- 相关资料没有被召回。
+- 资料召回了，但排得太靠后。
+- 上下文里有答案，但模型没有忠实使用证据。
+- 检索到了用户不该看的资料。
+- 文档版本过期，答案引用了旧政策。
+- PDF、图片、表格、扫描件没有被正确解析成可检索证据。
+
+本章改成一组离线可运行的小实验。每个实验只解决一个问题，先看失败输出，再加一个生产策略。
+
+## 学习路径
+
+建议按顺序学习：
+
+1. [01_failure_diagnosis](./01_failure_diagnosis/)：先学会看 Top-K，判断 RAG 到底失败在哪一层。
+2. [02_hybrid_search](./02_hybrid_search/)：理解为什么向量检索不擅长错误码、参数名、套餐名等精确词。
+3. [03_rrf_merge](./03_rrf_merge/)：用 RRF 合并向量检索和关键词检索结果。
+4. [04_rerank](./04_rerank/)：理解“多召回”和“精排序”为什么要分两阶段。
+5. [05_metadata_filter_context](./05_metadata_filter_context/)：加入权限、版本过滤、上下文去重和引用编号。
+6. [06_multimodal_retrieval](./06_multimodal_retrieval/)：处理 PDF、图片、OCR、Caption 和图文混合检索。
+
+所有示例都不调用模型 API，可以直接运行：
+
+```bash
+uv run advanced/03_production_rag/01_failure_diagnosis/main.py
+uv run advanced/03_production_rag/02_hybrid_search/main.py
+uv run advanced/03_production_rag/03_rrf_merge/main.py
+uv run advanced/03_production_rag/04_rerank/main.py
+uv run advanced/03_production_rag/05_metadata_filter_context/main.py
+uv run advanced/03_production_rag/06_multimodal_retrieval/main.py
+```
 
 ## 生产 RAG 链路
+
+学完小实验后，再回来看完整链路：
 
 ```text
 用户问题
@@ -23,7 +54,7 @@ metadata filter
   ↓
 向量检索 + 关键词检索
   ↓
-结果合并
+RRF / 加权融合
   ↓
 rerank
   ↓
@@ -34,221 +65,40 @@ rerank
 忠实度检查 / 引用检查
 ```
 
-## Hybrid Search
+每一层都要能单独观察。不要一看到答错就改 prompt。
 
-向量检索擅长语义相似，关键词检索擅长精确命中。
+## 核心概念速记
 
-| 问题类型 | 向量检索 | 关键词检索 |
+| 概念 | 解决的问题 | 常见误区 |
 | --- | --- | --- |
-| “怎么退款” | 强 | 中 |
-| “错误码 E1024” | 弱 | 强 |
-| “S3UploadTimeout 参数” | 弱 | 强 |
-| “会员到期后还能用吗” | 强 | 中 |
-
-生产中常用混合方案：
-
-```text
-vector_results = vector_search(query, top_k=20)
-keyword_results = bm25_search(query, top_k=20)
-merged = reciprocal_rank_fusion(vector_results, keyword_results)
-reranked = rerank(query, merged, top_k=5)
-```
-
-## Rerank
-
-第一阶段检索负责“多召回”，rerank 负责“精排序”。
-
-适合 rerank 的场景：
-
-- top_k 很大，直接拼上下文成本高。
-- 向量检索召回了相似但不回答问题的 chunk。
-- 用户问题包含多个条件。
-- 需要从多个文档里选最相关的少数段落。
-
-常见 rerank 模型：
-
-- 商业 rerank API
-- bge-reranker 系列
-- cross-encoder 模型
-- 使用 LLM 做小规模重排
-
-注意：LLM rerank 成本高、延迟大，适合低频高价值任务。
-
-## Query Rewrite
-
-用户问题常常不是适合检索的形式：
-
-```text
-用户：它到期后还能继续用吗？
-改写：云雀笔记会员订阅到期后功能限制和数据保留规则是什么？
-```
-
-改写策略：
-
-- 利用会话历史补全指代。
-- 把口语问题改成检索关键词。
-- 生成多个角度的问题。
-- 保留专有名词和错误码，不要过度改写。
-
-风险：
-
-- 改写引入不存在的假设。
-- 多轮对话中错解“它”指代。
-- 把用户问题变窄，漏掉相关文档。
-
-## Metadata Filter
-
-metadata filter 是生产 RAG 的安全基础。
-
-常见过滤字段：
-
-- `tenant_id`
-- `permission_group`
-- `document_type`
-- `product`
-- `locale`
-- `version`
-- `updated_at`
-
-示例：
-
-```python
-filters = {
-    "tenant_id": current_user.tenant_id,
-    "permission_group": {"$in": current_user.groups},
-    "document_status": "active",
-}
-```
-
-不要依赖 prompt 告诉模型“不要看别人的数据”。权限必须在检索前完成。
-
-## 上下文组装
-
-检索到 chunk 后，不应该直接全部拼进去。需要处理：
-
-- 去重：同一文档相邻 chunk 是否合并。
-- 截断：优先保留高相关、高权威、更新时间新的内容。
-- 分组：按文档或主题组织上下文。
-- 引用编号：给每段上下文稳定编号。
-- 冲突：旧文档和新文档矛盾时提示模型优先级。
-
-推荐上下文格式：
-
-```text
-[source: pricing.md#enterprise page=3 updated=2026-07-01]
-企业版支持按年订阅...
-
-[source: faq.md#refund page=8 updated=2026-06-15]
-退款申请需在购买后 7 天内提交...
-```
+| Query rewrite | 用户问法太短、指代不清、口语化 | 过度改写，丢掉错误码和专有名词 |
+| Hybrid search | 语义相似和精确关键词各有短板 | 以为混合检索等于简单拼接两个列表 |
+| RRF | 多路召回结果融合 | 只看分数，不看排名来源 |
+| Rerank | 候选很多时重新精排 | 直接用 rerank 替代召回 |
+| Metadata filter | 权限、租户、版本、语言过滤 | 依赖 prompt 约束模型不要看敏感资料 |
+| Context packing | 控制进入 LLM 的证据质量 | 把 Top-K 全部无脑拼进 prompt |
+| OCR / Caption | 把图片、扫描 PDF、图表转成文本证据 | 只做 OCR，不保留页码、区域、图片位置 |
+| Multimodal embedding | 图文映射到统一向量空间 | 不做领域评估就默认图文互搜可靠 |
 
 ## RAG 失败分类
 
-| 类型 | 表现 | 主要修复方向 |
-| --- | --- | --- |
-| 无召回 | 相关文档没被检索到 | 切块、embedding、query rewrite、hybrid |
-| 召回有但排序低 | 相关 chunk 在 top_k 之外 | rerank、RRF、调 top_k |
-| 上下文有但回答错 | 模型没遵守证据 | prompt、引用约束、忠实度检查 |
-| 上下文过长 | 答案混乱或成本高 | 压缩、去重、父子 chunk |
-| 权限错误 | 检索到不该看的内容 | metadata filter、租户隔离 |
-| 信息过期 | 回答旧政策 | 文档版本、active 标记、增量更新 |
-
-## 评估指标
-
-检索指标：
-
-- Recall@K
-- MRR
-- NDCG
-- 命中文档率
-- 命中 chunk 率
-
-生成指标：
-
-- answer correctness
-- faithfulness
-- citation precision
-- citation recall
-- refusal accuracy
-
-线上指标：
-
-- 用户追问率
-- 点踩率
-- 引用点击率
-- “没有解决”反馈率
-- 平均 token 成本
-
-## 具体示例：一次 RAG 失败如何定位
-
-用户问题：
-
-```text
-企业版支持 SSO 吗？
-```
-
-线上回答：
-
-```text
-支持，所有版本都支持 SSO。
-```
-
-人工检查发现正确答案是：
-
-```text
-只有企业版支持 SSO，团队版和个人版不支持。
-```
-
-不要直接改 prompt，先看链路。
-
-### 第 1 步：看检索结果
-
-```text
-top1 faq.md#登录问题 score=0.82
-top2 pricing.md#企业版能力 score=0.77
-top3 product_intro.md#安全能力 score=0.73
-```
-
-`pricing.md#企业版能力` 命中了，但排在第二。问题不是“无召回”，而是排序和上下文组装可能有问题。
-
-### 第 2 步：看上下文
-
-```text
-[faq.md#登录问题]
-云雀笔记支持手机号、邮箱和第三方账号登录。
-
-[pricing.md#企业版能力]
-企业版支持 SSO、审计日志和专属客户成功经理。个人版和团队版不包含 SSO。
-```
-
-上下文里有正确答案，但模型答错，属于“上下文有但回答错”。
-
-### 第 3 步：修复策略
-
-Prompt 增加约束：
-
-```text
-如果不同版本、套餐、权限存在差异，必须逐项说明差异，不要把某个版本的能力推广到所有版本。
-```
-
-同时增加评估样本：
-
-```json
-{
-  "input": "企业版支持 SSO 吗？",
-  "expected_facts": ["企业版支持 SSO", "个人版和团队版不包含 SSO"],
-  "forbidden_facts": ["所有版本都支持 SSO"]
-}
-```
-
-这个例子说明：RAG 优化要先分类失败，再决定改切块、检索、rerank、prompt 还是数据。
+| 类型 | 表现 | 先看什么 | 主要修复方向 |
+| --- | --- | --- | --- |
+| 无召回 | Top-K 没有正确资料 | Top-K 明细、Recall@K | 切块、embedding、query rewrite、hybrid |
+| 召回有但排序低 | 正确 chunk 在后面 | MRR、nDCG、排名位置 | RRF、rerank、调 top_k |
+| 上下文有但回答错 | 证据在 prompt 中但答案错 | prompt、答案事实、引用 | 引用约束、忠实度检查、评估样本 |
+| 上下文过长 | 答案混乱、成本高 | token、重复 chunk、来源数量 | 去重、压缩、父子 chunk |
+| 权限错误 | 检索到不该看的内容 | metadata、租户、权限组 | metadata filter、租户隔离 |
+| 信息过期 | 回答旧政策 | updated_at、version、active | 版本过滤、增量更新 |
+| 图文丢失 | PDF/图片里的答案找不到 | 解析结果、OCR、caption、页码 | 版面分析、OCR、caption、多模态检索 |
 
 ## 实践任务
 
-在 [tutorials/07_rag/04_rag_pipeline](../../tutorials/07_rag/04_rag_pipeline/) 基础上升级：
+完成本章后，把这些能力逐步迁移到 [tutorials/07_rag/04_rag_pipeline](../../tutorials/07_rag/04_rag_pipeline/)：
 
-1. 加入关键词检索。
-2. 用 RRF 合并向量和关键词结果。
-3. 为每个 chunk 添加 `document_type` 和 `updated_at`。
-4. 实现 metadata filter。
-5. 给评估集增加“错误码”“套餐名”“退款规则”等精确查询。
+1. 给 chunk 添加 `document_type`、`permission_group`、`updated_at`。
+2. 加入关键词检索。
+3. 用 RRF 合并向量和关键词结果。
+4. 先召回更多候选，再 rerank 到更少上下文。
+5. 在检索前执行 metadata filter。
+6. 为 PDF 页面、图片 OCR、图表 caption 设计统一 metadata。
