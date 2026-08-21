@@ -41,7 +41,8 @@ def demo_crud():
 def demo_semantic():
     """给 Store 配向量索引后，search(query=...) 按语义排序。"""
     print("\n===== 2. 语义召回 =====")
-    embeddings = OpenAIEmbeddings(model=os.getenv("EMBEDDING_MODEL", "text-embedding-3-small"))
+    embeddings = OpenAIEmbeddings(model=os.getenv("EMBEDDING_MODEL", "text-embedding-3-small"),
+                                  check_embedding_ctx_length=False)
     store = InMemoryStore(index={"dims": 1536, "embed": embeddings})
 
     ns = ("memories", "user-1")
@@ -68,6 +69,7 @@ def demo_in_graph():
         recalled = runtime.store.search(ns, query=state["messages"][-1].content, limit=3)
         memory_text = "；".join(item.value["data"] for item in recalled)
         print(f"  （召回记忆：{memory_text or '无'}）")
+
         system = SystemMessage(content=f"你是贴心的中文助手。关于这位用户，你记得：{memory_text}")
         return {"messages": [model.invoke([system] + state["messages"])]}
 

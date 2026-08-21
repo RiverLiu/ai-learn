@@ -53,14 +53,14 @@ logs/
 *.sqlite3
 todo.db
 heroes.db
-tutorials/rag/03_vector_store/rag_index.npz
-tutorials/rag/03_vector_store/rag_index.json
-tutorials/memory/02_long_term/memories.json
-tutorials/deepagents/04_backends/workspace/
-tutorials/basic/01_json/output.json
-tutorials/evaluation/01_eval_dataset/answers_cache.json
-tutorials/evaluation/02_llm_judge/answers_cache.json
-tutorials/evaluation/02_llm_judge/judge_cache.json
+tutorials/07_rag/03_vector_store/rag_index.npz
+tutorials/07_rag/03_vector_store/rag_index.json
+tutorials/11_memory/02_long_term/memories.json
+tutorials/14_deepagents/04_backends/workspace/
+tutorials/02_basic/01_json/output.json
+tutorials/15_evaluation/01_eval_dataset/answers_cache.json
+tutorials/15_evaluation/02_llm_judge/answers_cache.json
+tutorials/15_evaluation/02_llm_judge/judge_cache.json
 
 # Temporary files
 tmp/

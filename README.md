@@ -34,6 +34,7 @@
 | 18 | [tutorials/18_multimodal](tutorials/18_multimodal/) | 多模态：图像理解、语音转写（ASR→LLM 管道） | ⭐⭐ |
 | 19 | [tutorials/19_multi_agent](tutorials/19_multi_agent/) | 多 Agent 设计模式：流水线、主管、交接 | ⭐⭐⭐ |
 | 20 | [tutorials/20_capstone](tutorials/20_capstone/) | **毕业项目**：云雀笔记智能客服（RAG+Agent+SSE 流式+评测） | ⭐⭐⭐ |
+| 21 | [tutorials/21_planning](tutorials/21_planning/) | Agent Planning：计划、分层规划、动态重规划 | ⭐⭐⭐ |
 
 ## 高级学习路线图
 

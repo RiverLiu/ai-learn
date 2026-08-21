@@ -16,7 +16,7 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 load_dotenv()
 
 model = ChatOpenAI(model=os.getenv("MODEL_NAME", "gpt-4o-mini"))
-embeddings = OpenAIEmbeddings(model=os.getenv("EMBEDDING_MODEL", "text-embedding-3-small"))
+embeddings = OpenAIEmbeddings(model=os.getenv("EMBEDDING_MODEL", "text-embedding-3-small"), check_embedding_ctx_length=False)
 
 # 模拟一个积累了 10 条记忆的老用户（内容刻意横跨多个领域）
 MEMORIES = [

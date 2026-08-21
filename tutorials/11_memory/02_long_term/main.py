@@ -76,7 +76,7 @@ def main():
     )
     facts = extract_facts(history)
     save_facts(facts)
-    print(f"（会话结束，抽取并存储 {len(facts)} 条记忆：{facts}）")
+    print(f"\n\n（会话结束，抽取并存储 {len(facts)} 条记忆：{facts}）")
 
     print("\n===== 第二天（全新会话） =====")
     run_session(["今天吃什么好？", "帮我安排今晚的计划"])

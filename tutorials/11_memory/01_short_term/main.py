@@ -26,6 +26,7 @@ class ChatBot:
         self.strategy = strategy
         self.window = window
         self.history: list[BaseMessage] = []  # 完整历史永远保留在本地
+        self.history.append(SystemMessage(content="回答问题请简短概要"))
         self.summary = ""                     # 仅 summary 策略使用
 
     def _build_messages(self) -> list[BaseMessage]:
@@ -34,6 +35,7 @@ class ChatBot:
             return list(self.history)  # 全给：最准但 token 随轮数线性增长
         if self.strategy == "window":
             return list(self.history[-self.window:])  # 只给最近几条：早期信息必然遗忘
+
         # summary：旧历史压成摘要放 system，外加最近一轮原文
         messages = []
         if self.summary:
@@ -57,6 +59,7 @@ class ChatBot:
         self.history.append(HumanMessage(content=text))
         sent = self._build_messages()
         print(f"  （本轮发给模型 {len(sent)} 条消息）")
+
         reply = model.invoke(sent).content
         self.history.append(AIMessage(content=reply))
         if self.strategy == "summary":
@@ -76,7 +79,8 @@ def demo(strategy: str):
     ]
     for question in script:
         print(f"用户：{question}")
-        print(f"助手：{bot.chat(question)}")
+        print(f"助手：{bot.chat(question)}\n{'-' * 30}\n")
+
     if bot.summary:
         print(f"（最终摘要：{bot.summary}）")
 
