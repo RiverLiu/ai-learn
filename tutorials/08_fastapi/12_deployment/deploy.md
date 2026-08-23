@@ -26,14 +26,29 @@ gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
 
 ## Docker 示例
 
-```dockerfile
-FROM python:3.12-slim
+本章已经提供可直接使用的 [Dockerfile](./Dockerfile) 和 [docker-compose.yml](./docker-compose.yml)。
 
-WORKDIR /app
-COPY . /app
-RUN pip install -r requirements.txt
+构建并运行单容器：
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+```bash
+docker build -t fastapi-deployment-demo .
+docker run --rm -p 8000:8000 \
+  -e SECRET_KEY="change-me" \
+  -e DATABASE_URL="sqlite:////app/data/production.db" \
+  -e DEBUG="false" \
+  fastapi-deployment-demo
+```
+
+使用 Docker Compose：
+
+```bash
+docker compose up --build
+```
+
+验证：
+
+```bash
+curl "http://127.0.0.1:8000/health"
 ```
 
 ## 部署检查清单
