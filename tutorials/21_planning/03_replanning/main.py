@@ -127,10 +127,6 @@ def execute_node(state: State) -> dict:
 # 6. 条件路由：成功则继续/总结，失败则重规划
 # ---------------------------------------------------------------------------
 def route_after_execute(state: State) -> str:
-    # 计划已全部执行完
-    if state["current_step"] >= len(state["plan"]):
-        return "summarize"
-
     # 检查上一步结果是否表示失败
     last_result = state["results"][-1] if state["results"] else ""
     failure_markers = ["已订满", "失败", "不可用", "错误"]
@@ -138,6 +134,10 @@ def route_after_execute(state: State) -> str:
         if state["replan_count"] < MAX_REPLAN:
             return "replan"
         return "summarize"  # 超过最大次数，直接总结
+
+    # 计划已全部执行完
+    if state["current_step"] >= len(state["plan"]):
+        return "summarize"
 
     return "execute"
 
@@ -172,7 +172,11 @@ def replan_node(state: State) -> dict:
 
     # 新计划 = 已完成步骤 + 调整后的剩余步骤
     new_plan = completed_steps + out.new_steps
-    return {"plan": new_plan, "replan_count": state["replan_count"] + 1}
+    return {
+        "plan": new_plan,
+        "current_step": len(completed_steps),
+        "replan_count": state["replan_count"] + 1,
+    }
 
 
 # ---------------------------------------------------------------------------
