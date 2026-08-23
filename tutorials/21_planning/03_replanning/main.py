@@ -222,6 +222,10 @@ def main():
 
     state = graph.invoke({"task": task})
 
+    print("===steps===")
+    for step in state["plan"]:
+        print(f"step {step.step_number}, action: {step.action} tools; {step.tool}({step.tool_input})")
+
     print("=== 最终计划执行轨迹 ===")
     for r in state["results"]:
         print(r)
