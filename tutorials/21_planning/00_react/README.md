@@ -8,6 +8,23 @@ Thought -> Action -> Observation -> Thought -> Action -> Observation -> Final
 
 它不是先生成完整计划，而是每一步根据当前观察决定下一步做什么。
 
+## ReAct 和 CoT 的关系
+
+CoT（Chain-of-Thought，思维链）关注“模型如何在一次回答里多步推理”。ReAct 可以理解为在 CoT 的基础上加入工具调用和外部观察：
+
+```text
+CoT:   Thought -> Thought -> Answer
+ReAct: Thought -> Action -> Observation -> Thought -> Action -> Observation -> Final
+```
+
+区别在于：
+
+- CoT 的中间推理主要来自模型内部。
+- ReAct 的 Observation 必须来自真实工具结果，例如搜索、数据库查询、API 调用。
+- CoT 更像“想清楚再答”，ReAct 更像“边查边判断”。
+
+生产环境不建议要求模型完整暴露隐藏思维链。更实用的做法是记录简短决策理由、工具调用参数、工具返回结果和最终引用。
+
 ## 本章要点
 
 - **Thought**：判断当前缺什么信息，决定下一步。
