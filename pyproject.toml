@@ -26,4 +26,5 @@ dependencies = [
     "langchain-text-splitters>=1.1.2",
     "deepagents>=0.6.12",
     "aiohttp>=3.14.3",
+    "python-socks>=3.0.0",
 ]

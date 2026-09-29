@@ -1,12 +1,13 @@
 # 网络协议基础
 
 本目录介绍 Web 开发中常用的网络协议，重点讲解 HTTP/HTTPS 协议基础，以及如何用 Python 进行 HTTP 请求。
-LLM API、Embedding API、MCP HTTP 传输、FastAPI 服务，本质上都跑在 HTTP 请求/响应模型之上。
+LLM API、Embedding API、MCP HTTP 传输、FastAPI 服务，本质上都跑在 HTTP 请求/响应模型之上。实时聊天、语音 Agent 和协作应用还会用到 SSE 或 WebSocket 这类长连接协议。
 
 ## 目录
 
 - `01_http_basics.md`：HTTP/HTTPS 协议基础
 - `02_python_http/`：Python 中使用 HTTP 的示例代码
+- `03_websockets/`：WebSocket 协议、服务端、浏览器客户端与部署注意事项
 
 ## 学习目标
 
@@ -15,6 +16,7 @@ LLM API、Embedding API、MCP HTTP 传输、FastAPI 服务，本质上都跑在 
 3. 了解请求头、响应头的作用
 4. 能够使用 Python 标准库和第三方库发送 HTTP 请求
 5. 能看懂 LLM API 请求中的 URL、Header、JSON Body 和错误状态码
+6. 理解 WebSocket 的握手、双向通信、心跳、重连和生产部署要点
 
 ## 与 AI 应用的关系
 
@@ -26,6 +28,16 @@ LLM API、Embedding API、MCP HTTP 传输、FastAPI 服务，本质上都跑在 
 | 流式输出 | HTTP 长连接 / SSE |
 | FastAPI 后端 | 接收 HTTP 请求并返回 JSON 或流 |
 | MCP Streamable HTTP | 基于 HTTP 的协议传输 |
+| 实时语音 Agent | WebSocket 双向传输音频、文本和控制事件 |
+| 协作式 Agent | WebSocket 同步多人状态和工具执行进度 |
+
+## HTTP / SSE / WebSocket 怎么选
+
+| 协议 | 通信方式 | 适合 AI 场景 |
+| --- | --- | --- |
+| HTTP | 一次请求，一次响应 | 普通 Chat API、Embedding API、管理后台 |
+| SSE | 服务端持续推送 | LLM token 流、任务进度、事件通知 |
+| WebSocket | 客户端和服务端双向通信 | 实时语音、在线协作、可中断工具执行 |
 
 学完本模块后，再看 [LLM API](../05_llm_api/) 和 [FastAPI](../08_fastapi/) 会更容易理解。
 
@@ -70,3 +82,7 @@ LLM API、Embedding API、MCP HTTP 传输、FastAPI 服务，本质上都跑在 
 **Q10：OpenAI 兼容协议是什么意思？**
 
 参考答案：不同服务商实现与 OpenAI API 类似的 URL、请求体和响应格式，使应用可以通过修改 `BASE_URL`、API Key 和模型名切换服务。
+
+**Q11：WebSocket 和 SSE 应该怎么选？**
+
+参考答案：如果只是服务端向浏览器单向推送模型 token 或任务进度，SSE 更简单；如果客户端和服务端都要持续发送消息，例如实时语音、协作编辑、取消工具调用或低延迟双向聊天，WebSocket 更合适。
