@@ -44,7 +44,7 @@ def ask(question: str, temperature: float | None = None):
 def temperature_demo():
     """创意题最能体现差异：temperature=0 保守稳定，temperature=2 天马行空。"""
     question = "给一家开在大学旁边的猫咖起一个店名，并配一句广告语。"
-    for temp in [0.0, 2.0]:
+    for temp in [0.0, 1.9]:
         response = ask(question, temperature=temp)  # 0 = 几乎每次一样；越大越发散
         print(f"【temperature={temp}】")
         print(f"  {response.choices[0].message.content}\n")
@@ -89,6 +89,9 @@ def streaming_demo():
     for chunk in stream:
         # 每个 chunk 只含新增的一小片，delta（增量）里取文本；
         # 开头/结尾的 chunk 可能没有文本（角色标记、结束标记），要判空
+        if not chunk.choices:
+            continue
+
         text = chunk.choices[0].delta.content
         if text:
             print(text, end="", flush=True)

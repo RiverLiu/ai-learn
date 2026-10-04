@@ -47,6 +47,7 @@ def make_test_png(width: int = 240, height: int = 120) -> bytes:
     for y in range(30, 90):
         for x in range(80, 160):
             pixels[y][x] = (255, 255, 0)
+
     # 图像数据：每行扫描线前缀 1 字节过滤器类型（0 = 无过滤），再整体 zlib 压缩
     raw = b"".join(b"\x00" + b"".join(struct.pack("3B", *px) for px in row) for row in pixels)
     # IHDR：宽、高、位深 8、颜色类型 2（真彩色 RGB）、压缩/过滤/隔行均为 0
